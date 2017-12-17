@@ -1,0 +1,22 @@
+{
+  "name": "serverless-ether-trends-bot",
+  "version": "0.1.0",
+  "description": "Serverless bot that tweets about github trends related to ethereum",
+  "main": "src/handler.js",
+  "scripts": {
+    "test": "mocha './test/**/*.test.js'"
+  },
+  "keywords": [],
+  "author": "Gonzalo Sánchez",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "date-fns": "^1.29.0",
+    "twitter": "^1.7.1"
+  },
+  "devDependencies": {
+    "assert": "^1.4.1",
+    "mocha": "^4.0.1",
+    "sinon": "^4.1.3"
+  }
+}

@@ -1,0 +1,23 @@
+service: serverless-ether-trends-bot
+
+package:
+  individually: true
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  environment: ${file(env.yml):${opt:stage}}
+
+functions:
+  daily:
+    handler: src/handler.daily
+    events:
+      - schedule: cron(0 9 * * ? *)
+  weekly:
+    handler: src/handler.weekly
+    events:
+      - schedule: cron(0 9 ? * SUN *)
+  monthly:
+    handler: src/handler.monthly
+    events:
+      - schedule: cron(0 9 1 * ? *)
