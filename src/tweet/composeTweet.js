@@ -6,7 +6,7 @@ module.exports = (results, opts) => {
 
     let title = getTitle(opts);
 
-    let body = results.join('\n');
+    let body = results.reverse().join('\n');
 
     let tags = '#ethereum #blockchain #github';
 
