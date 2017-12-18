@@ -7,13 +7,19 @@ module.exports = (opts) => {
 
     let range = getRange(opts);
 
-    let date = new Date();
+    let initialDate = new Date();
+
+    let lastDate = new Date();
     
-    date.setDate(date.getDate() - range);
+    initialDate.setDate(initialDate.getDate() - range);
 
-    let formatedDate = format(date, 'YYYY-MM-DD');
+    lastDate.setDate(lastDate.getDate() - 1);
 
-    let searchQuery = `q=topic:ethereum+created:>${formatedDate}`;
+    let formatedInitial = format(initialDate, 'YYYY-MM-DD[T00:00:00]');
+
+    let formatedLast = format(lastDate, 'YYYY-MM-DD[T23:59:59]');
+
+    let searchQuery = `q=topic:ethereum+created:${formatedInitial}..${formatedLast}`;
 
     let sortQuery = 'sort=stars';
 
